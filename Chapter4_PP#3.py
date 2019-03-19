@@ -1,4 +1,4 @@
-#Chapter#3_Programming Project - Pig Latin
+#Chapter 4_Programming Project #3 - Pig Latin
 '''Pig Latin is a game of alterations played on words. To make the Pig Latin form
 of an English word the initial consonant sound is transposed to the end of
 the words and an "ay" is affixed. Specifically there are two rules:
