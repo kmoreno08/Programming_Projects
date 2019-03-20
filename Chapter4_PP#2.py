@@ -7,7 +7,8 @@ words that get replaced by the values prompted for.'''
 
 #Entry Message
 #Keep asking user - While loop
-#Fix replace
+#Put in Function
+
 
 adjOne = input("Please enter an adjective. : ")
 nounOne = input("Plese enter a noun. : ")
@@ -17,12 +18,28 @@ adjThree = input("Please enter the last adjective. : ")
 nounThree = input("Please enter the last noun. : ")
 girlName = input("Please enter a girls name. : ")
 
-story = "Once upon a time in the middle of a ADJECTIVE_ONE NOUN_ONE stood a \
-ADJECTIVE_TWO NOUN_TWO, the home of a ADJECTIVE_ONE ADJECTIVE_THREE \
-NOUN_THREE known to everyone as GIRLS_NAME"
+original = '''Once upon a time in the middle of a ADJECTIVE_ONE NOUN_ONE stood a\
+ADJECTIVE_TWO NOUN_TWO, the home of a ADJECTIVE_ONE ADJECTIVE_THREE\
+NOUN_THREE known to everyone as GIRLS_NAME'''
+
+replaceAdjOne = '''Once upon a time in the middle of a ADJECTIVE_ONE
+'''.replace('ADJECTIVE_ONE', adjOne)
+
+replaceNounOne = "NOUN_ONE stood a ".replace('NOUN_ONE', nounOne)
+
+replaceAdjTwo = "ADJECTIVE_TWO ".replace('ADJECTIVE_TWO',adjTwo)
+replaceNounTwo = "NOUN_TWO, the home of a ".replace('NOUN_TWO', nounTwo)
+
+replaceAdjOneSelf = "ADJECTIVE_ONE ".replace("ADJECTIVE_ONE ",adjOne)
+
+replaceAdjThree = " ADJECTIVE_THREE ".replace('ADJECTIVE_THREE', adjThree)
+replaceNounThree = "NOUN_THREE known to everyone as ".replace("NOUN_THREE",nounThree)
+
+replaceGirlName = "GIRLS_NAME".replace("GIRLS_NAME",girlName)
 
 
-print(adjOne)
+replaceOriginal = f'{replaceAdjOne}{replaceNounOne}{replaceAdjTwo}{replaceNounTwo}{replaceAdjOneSelf}{replaceAdjThree}{replaceNounThree}{replaceGirlName}'
 
-print(story.replace(adjOne, "ADJECTIVE_ONE"))
+print(replaceOriginal)
+
 
