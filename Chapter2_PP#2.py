@@ -3,25 +3,17 @@
 Assume the paper is 1/200cm thick. Write a program to solve this puzzle.
 Prompt for the number of folds and output the thickness in meters.'''
 
-#Entry message
 
+print("Welcome! This program will calculate how thick a piece of paper gets after a certain amount of folds.")
 
 numberOfFolds = int(input("How many folds would you like to do? "))
 paperThickness = 1/200
-print(paperThickness)
 
-totalThickness = paperThickness * numberOfFolds
-print(totalThickness)
-
-
+#totalThickness = paperThickness * numberOfFolds
 count = 1
-
+#For loop to count number of folds
 for i in range(0, numberOfFolds):
-    print(count)
     totalThick = paperThickness * count
-    print("total Thickness " + str(totalThick))
     count = count + 1
-                
-    
 message = f'The total thickness is {totalThick} with {numberOfFolds} number of folds.'
 print(message)
