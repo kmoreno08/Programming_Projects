@@ -2,9 +2,6 @@
 '''Prompt for the desired number of sides for your polygon.
 Option: prompt for a color and color the interior of your polygon.'''
 
-#Prompt user for a color - try/except if color is not correct
-#Keep asking user until quit
-
 import turtle
 
 def calc_angle(number_of_sides):
@@ -23,22 +20,47 @@ def draw_polygon(number_of_sides, exterior_angle):
     for i in range(0, number_of_sides):
                polygon.forward(50)
                polygon.right(exterior_angle)
-
-number_of_sides = int(input("How many number of sides would you like? : "))
-color = input("Which color would you like? : ")
-polygon = turtle.Turtle()
-#Calculate exterior angle to use for correct degrees
-exterior_angle = calc_angle(number_of_sides)
-#Start at the top
-start_pos()
-#Choose color
-polygon.color(color)
-#Begin fill color
-polygon.begin_fill()
-#Draw polygon with for loop
-draw_polygon(number_of_sides, exterior_angle)
-#Fill in polygon with selected color
-polygon.end_fill()
+        
 
 
+print("Welcome to the turtle polygon program. This program will ask you how \
+many number of sides and what color you would like for your polygon. \
+Remember: To exit, type in 'exit' at anytime. Enjoy!")
+
+loop = True
+while loop:
+    number_of_sides = input("How many number of sides would you like? : ")
+    number_of_sides = number_of_sides.lower()
+    #Exit program
+    if number_of_sides == 'exit':
+        print("Break exit.")
+        break
+    #Change to int
+    number_of_sides = int(number_of_sides)
+    #Check if color is correct, if not message occurs. Still draws shape in black.
+    try:
+        color = input("Which color would you like? : ")
+        #Lower case input
+        color = color.lower()
+        #Exit program
+        if color == 'exit':
+            print('Color Exit')
+            break
+        polygon = turtle.Turtle()
+        #Calculate exterior angle to use for correct degrees
+        exterior_angle = calc_angle(number_of_sides)
+        #Start at the top
+        start_pos()
+        #Choose color
+        polygon.color(color)
+    except:
+        print("Program does not recognize that color, polygon will be filled in black. ")
+    #Begin fill color
+    polygon.begin_fill()
+    #Draw polygon with for loop
+    draw_polygon(number_of_sides, exterior_angle)
+    #Fill in polygon with selected color
+    polygon.end_fill()
+
+print("Have a great day!")
 
