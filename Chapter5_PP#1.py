@@ -10,14 +10,17 @@ of each word, and then write the result to a file.
 #Have user choose ROT13 or Random
 #Print to output file
 #If length of word is less than 3, need to add to completeString
+##Use string.index(i) + shift) % 26 (Function) then join code
 
 
 import re
 input_file = open("Chapter5_PP#1(InputFile).txt", "r")
 output_file = open("Chapter5_PP#1(OutputFile).txt", "w")
 
-
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
 completeString = ''
+shift = 13
+newIndexLetter = 0
 for line_str in input_file:
     #Get rid of duplicate spaces in string
     stringNoDupSpaces = re.sub(' +', ' ', line_str)
@@ -26,11 +29,26 @@ for line_str in input_file:
     for word in line_str_split:
         print("word --------" + word)
         #Small word does not need to be changed
-        if len(word) >= 3: 
+        if len(word) >= 3:
+            count = 1
             #Split word into first, middle and last
             first, mid, last = word[0], word[1:-1], word[-1]
-            emptyString = ''
+            fullWord = ''
             newMid = ''
+            for i in mid:
+                newIndexLetter = ((alphabet.index(i) + shift) % 26)
+                newMid += alphabet[newIndexLetter]
+                count += 1
+                if count == len(mid):
+                    newIndexLetter = ((alphabet.index(i) + shift) % 26)
+                    newMid += alphabet[newIndexLetter]
+                    print("The End")
+                    fullWord = first + newMid + last
+                    print(fullWord)
+                    completeString += fullWord + " "
+                    print("THE END!")
+            print(completeString)
+            '''
             newList = []   
             count = 1
             #Loop through length of the middle word
@@ -157,9 +175,10 @@ for line_str in input_file:
                     count+=1
                 else:
                     newMid += mid[i]
-                    count+=1
+                    count+=1'''
 
-
+print()
+print("---" * 20)
 print(stringNoDupSpaces)
 print()
 print()
