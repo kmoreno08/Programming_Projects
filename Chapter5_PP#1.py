@@ -6,20 +6,36 @@ of each word, and then write the result to a file.
     '''
 
 #Need Entry message
-#Need to rotate letters (Random)
-#Have user choose ROT13 or Random
 #Print to output file
-#Word length of 3 is not being added to completeString
+
 
 
 
 import re
+import random
 input_file = open("Chapter5_PP#1(InputFile).txt", "r")
 output_file = open("Chapter5_PP#1(OutputFile).txt", "w")
 
+print("Would you like to choose the rotation of letters, if so type 'y'")
+print("Or would you like the computer to choose randomly. If so type 'n'")
+
+shift = 0
+#User choice for random or choose the shift
+userChoice = input("'y' for user choice or 'n' for random. Please type here : ")
+print("--" * 20)
+if userChoice == 'y':
+    userInputShift = int(input("How much of a shift in letters would you like? : "))
+    shift = userInputShift
+    print("You have chosen a shift of " + str(shift))
+else:
+    random = random.randint(1, 26)
+    print()
+    print("The computer has chosen ROT" + str(random))
+    shift = random
+
+
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
-completeString = ''
-shift = 13
+finalString = ''
 newIndexLetter = 0
 for line_str in input_file:
     #Get rid of duplicate spaces in string
@@ -27,8 +43,6 @@ for line_str in input_file:
     #Each word in to a list, seperated by spaces
     line_str_split = stringNoDupSpaces.split(' ')
     for word in line_str_split:
-        print("word --------" + word)
-        #Small word does not need to be changed
         #if len(word) >= 3:
         if len(word) >= 3:
             count = 1
@@ -36,18 +50,13 @@ for line_str in input_file:
             first, mid, last = word[0], word[1:-1], word[-1]
             fullWord = ''
             newMid = ''
-            print("This is mid ---> " + mid) 
             for i in mid:
-                #At end of word save to completeString to print
+                #At end of each word save to finalString to print
                 if count == len(mid):
                     newIndexLetter = ((alphabet.index(i) + shift) % 26)
                     newMid += alphabet[newIndexLetter]
-                    print("New mid after if statement " + newMid)
-                    print("The End")
                     fullWord = first + newMid + last
-                    print(fullWord)
-                    completeString += fullWord + " "
-                    print("THE END!")
+                    finalString += fullWord + " "
                 #Try/Except for characters that are not letters
                 try:
                     newIndexLetter = ((alphabet.index(i) + shift) % 26)
@@ -56,18 +65,18 @@ for line_str in input_file:
                 except ValueError:
                     newMid += i
                     count += 1
+        #words with less than length of three, add to finalString w/out shift.
         else:
-            completeString += word + " "
-            print('Small word !!!')
-                #print(completeString)
+            finalString += word + " "
 
 
 print()
-print("---" * 20)
+print("BEFORE: ")
 print(stringNoDupSpaces)
 print()
 print()
-print(completeString)
+print("AFTER: ")
+print(finalString)
 
   
             
