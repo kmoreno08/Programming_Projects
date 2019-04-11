@@ -29,13 +29,25 @@ for line_str in input_file:
     for word in line_str_split:
         print("word --------" + word)
         #Small word does not need to be changed
+        #if len(word) >= 3:
         if len(word) >= 3:
             count = 1
             #Split word into first, middle and last
             first, mid, last = word[0], word[1:-1], word[-1]
             fullWord = ''
             newMid = ''
+            print("This is mid ---> " + mid) 
             for i in mid:
+                #At end of word save to completeString to print
+                if count == len(mid):
+                    newIndexLetter = ((alphabet.index(i) + shift) % 26)
+                    newMid += alphabet[newIndexLetter]
+                    print("New mid after if statement " + newMid)
+                    print("The End")
+                    fullWord = first + newMid + last
+                    print(fullWord)
+                    completeString += fullWord + " "
+                    print("THE END!")
                 #Try/Except for characters that are not letters
                 try:
                     newIndexLetter = ((alphabet.index(i) + shift) % 26)
@@ -44,14 +56,6 @@ for line_str in input_file:
                 except ValueError:
                     newMid += i
                     count += 1
-                if count == len(mid):
-                    newIndexLetter = ((alphabet.index(i) + shift) % 26)
-                    newMid += alphabet[newIndexLetter]
-                    print("The End")
-                    fullWord = first + newMid + last
-                    print(fullWord)
-                    completeString += fullWord + " "
-                    print("THE END!")
         else:
             completeString += word + " "
             print('Small word !!!')
