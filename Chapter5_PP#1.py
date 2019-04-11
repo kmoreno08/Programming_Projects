@@ -9,7 +9,7 @@ of each word, and then write the result to a file.
 #Need to rotate letters (Random)
 #Have user choose ROT13 or Random
 #Print to output file
-#If length of word is less than 3, need to add to completeString
+#Word length of 3 is not being added to completeString
 
 
 
@@ -52,7 +52,10 @@ for line_str in input_file:
                     print(fullWord)
                     completeString += fullWord + " "
                     print("THE END!")
-            print(completeString)
+        else:
+            completeString += word + " "
+            print('Small word !!!')
+                #print(completeString)
 
 
 print()
