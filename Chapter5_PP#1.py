@@ -5,16 +5,15 @@ of each word, and then write the result to a file.
 2) For each letter choose a random number and rotate that letter by the random amount.
     '''
 
-#Need Entry message
-#Print to output file
-
-
-
-
 import re
 import random
-input_file = open("Chapter5_PP#1(InputFile).txt", "r")
-output_file = open("Chapter5_PP#1(OutputFile).txt", "w")
+
+print("This program will scramble the internal letters and write to a file.")
+print("You get to choose by which rotation or random!")
+#Read file
+inputFile = open("Chapter5_PP#1(InputFile).txt", "r")
+#Write to output file
+outputFile = open("Chapter5_PP#1(OutputFile).txt", "w")
 
 print("Would you like to choose the rotation of letters, if so type 'y'")
 print("Or would you like the computer to choose randomly. If so type 'n'")
@@ -37,7 +36,7 @@ else:
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 finalString = ''
 newIndexLetter = 0
-for line_str in input_file:
+for line_str in inputFile:
     #Get rid of duplicate spaces in string
     stringNoDupSpaces = re.sub(' +', ' ', line_str)
     #Each word in to a list, seperated by spaces
@@ -77,6 +76,9 @@ print()
 print()
 print("AFTER: ")
 print(finalString)
+outputFile.write(finalString)
+inputFile.close()
+outputFile.close()
 
   
             
