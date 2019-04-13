@@ -7,41 +7,44 @@ the last bean loses.'''
 
 #Entry message
 #Take input from both players to choose how many beans need to be taken
-#Total bean count is random, 16 max 4 min
+#Total bean count is random, 16 max 4 min (user choses)
+#needs to be in functions
+
+
+def user_a_amount(total_beans):
+    user_a_int = int(input("How many beans would you like to take user A? "))
+    total_beans -= user_a_int
+    print(f'{total_beans} number of bean(s) are left!')
+    return total_beans
+
+def user_b_amount(total_beans):
+    user_b_int = int(input("How many beans user B? "))
+    total_beans -= user_b_int
+    print(f'{total_beans} number of bean(s) are left!')
+    return total_beans
+    
+                  
 
 import random
 
-
-def playerOne(totalBeans):
-    totalBeans = totalBeans - 1
-    message = f'Player One moves! total beans is {totalBeans}.'
-    print(message)
-    return totalBeans
-
-def playerTwo(totalBeans):
-    totalBeans = totalBeans - 1
-    message = f'Player Two moves! total beans is {totalBeans}.'
-    print(message)
-    return totalBeans
-
-
-totalBeans = 16
-playerCount = 1
-
-for i in range(0, 15):
-    totalBeans = playerOne(totalBeans)
-    if totalBeans == 1:
-        message = f'Player {playerCount} is the loser! Player {playerCount + 1} wins!'
-        print(message)
+total_beans = 16
+print("whoever takes the last bean loses!")
+while True:
+    total_beans = user_a_amount(total_beans)
+    if total_beans <= 0:
+        print("Sorry user A, you have taken the last bean!")
+        print("The winner is User B.")
         break
-    playerCount+=1
-    totalBeans = playerTwo(totalBeans)
-    if totalBeans == 1:
-        message = f'Player {playerCount} is the loser! Player {playerCount - 1} wins!'
-        print(message)
+    total_beans = user_b_amount(total_beans)
+    if total_beans <= 0:
+        print("Sorry user B, you have lost!")
+        print("The winner is User A.")
         break
-    playerCount-=1
 
-print("Thank you for playing! ")
+
+print("Have a great day!")
+
+
+
 
         
