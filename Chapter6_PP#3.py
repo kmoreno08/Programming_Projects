@@ -7,7 +7,22 @@ the last bean loses.'''
 
 #Entry message
 
-
+def player_choice():
+    print("Would you like to have a random choice of beans (min: 4, max: 16) or")
+    print("have 16 beans in total?")
+    player_choice = input("Random? (Please type y/n) : ")
+    player_choice = player_choice.lower()
+    #If yes, then total beans are a random number
+    if player_choice == 'y':
+        total_beans = random
+        print(f'Random has been chosen! You have {total_beans} beans in total.')
+        return total_beans
+    #Total beans are 16
+    else:
+        total_beans = 16
+        print("You have 16 total beans!")
+        return total_beans
+    
 def user_a_amount(total_beans):
     user_a_int = int(input("How many beans would you like to take user A? "))
     total_beans -= user_a_int
@@ -26,18 +41,8 @@ import random
 #Random number from 4 to 16
 random = random.randint(4, 16)
 
-print("Would you like to have a random choice of beans (min: 4, max: 16) or")
-print("have 16 beans in total?")
-player_choice = input("Random? (Please type y/n) : ")
-player_choice.lower()
-#If yes, then total beans are a random number
-if player_choice == 'y':
-    total_beans = random
-    print(f'Random has been chosen! You have {total_beans} beans in total.')
-#Total beans are 16
-else:
-    total_beans = 16
-    print("You have 16 total beans!")
+#User chooses random or 16 total beans
+total_beans = player_choice()
 
 print("whoever takes the last bean loses!")
 #While loop to keep asking user until all beans are gone
