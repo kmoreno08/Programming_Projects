@@ -11,3 +11,12 @@ With that being said, your goal is to find out which number meets these criteria
 6) The second to last digit is even
 7) The last digit is equal to how many digits are in the number
 '''
+
+i = 1
+
+#Number has 2 digits
+for i in range(1, 1000):
+    if i >= 10:
+        if 
+    else:
+        print("Exiting loop")
