@@ -8,22 +8,31 @@ a single letter, to check if the inputted is in the hidden word (and if it is, h
 it appears), to print letters, and a count variable to limit guesses.
 '''
 
-#Text file from "dwyl" on Github
-
+#Text file of words from "dwyl" on Github - 466k words
+import random
 
 print("Welcome to Hangman")
 print("Please guess a letter")
+print("All letters are lower case.")
 guesses_left = int(input("How many guesses would you like? "))
 
 
 
 
-word = "Dog"
+
+#Empty list
+word_list = []
+
+#Read text document to grab word by Random
+file = open("hangman_text.txt", "r")
+
+
+for word in file:
+    word_list.append(word)
+
+random_num = random.randrange(1,len(word_list))
+word = word_list[random_num]
 word_lower = word.lower()
-print(word_lower)
-
-
-#Read text document to grab word - Random
 
 
 
