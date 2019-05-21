@@ -8,42 +8,44 @@ a single letter, to check if the inputted is in the hidden word (and if it is, h
 it appears), to print letters, and a count variable to limit guesses.
 '''
 
-#Text file of words from "dwyl" on Github - 466k words
+#Text file of words from "dwyl" on Github 466k words - https://github.com/dwyl/english-words
 import random
 
-print("Welcome to Hangman")
-print("Please guess a letter")
-print("All letters are lower case.")
+
+#Intro
+print("Welcome to Hangman!")
+print("You will try to guess the word by inputing each letter.")
+print("Remember, All letters are lower case!")
+#User chooses how many guesses
 guesses_left = int(input("How many guesses would you like? "))
-
-
-
-
 
 #Empty list
 word_list = []
 
-#Read text document to grab word by Random
-file = open("hangman_text.txt", "r")
+#All words in document in to a list
+with open("hangman_text.txt") as file:
+    for word in file:
+        word_list.append(word)
 
-
-for word in file:
-    word_list.append(word)
-
+#Random number for length of list
 random_num = random.randrange(1,len(word_list))
-word = word_list[random_num]
-word_lower = word.lower()
 
+#Pick word by random 
+word = word_list[random_num]
+
+#Lower case the word
+word_lower = word.lower()
 
 
 #Make word in to a list
 list_word = list(word_lower)
 
+
+#remove '/n' 
+list_word = list_word[:-1]
+
 #Program will exit if no guesses left
 while guesses_left != 0:
-    #If guess all letters in word
-    print("Congrats! You have guessed the word!")
-    print("The word is " + word)
     while list_word != []:
         #Break out of loop if no guesses left
         if guesses_left == 0:
@@ -70,6 +72,8 @@ while guesses_left != 0:
             print("nope, sorry!")
             guesses_left -= 1
             print("Your remaining number of guesses are " + str(guesses_left))
-
+       #If guess all letters in word
+    print("Congrats! You have guessed the word!")
+    print("The word is " + word)
 #Exit program    
 print("You have exited the program.")
