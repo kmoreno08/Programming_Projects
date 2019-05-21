@@ -16,8 +16,19 @@ import random
 print("Welcome to Hangman!")
 print("You will try to guess the word by inputing each letter.")
 print("Remember, All letters are lower case!")
+
 #User chooses how many guesses
-guesses_left = int(input("How many guesses would you like? "))
+while True:
+    try:
+        guesses_left = int(input("How many guesses would you like? Max(30): "))
+        #Max the guesses to 30
+        if guesses_left > 30:
+            guesses_left = 30
+        break
+    #Has to be an integer
+    except:
+        print("That's not a valid option!")
+
 
 #Empty list
 word_list = []
