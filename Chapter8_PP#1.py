@@ -6,32 +6,48 @@ and tell us the best six months and the worse six months'''
 #getMonthlyAverages function
 #printInfo function
 
-avePrice = 0
-avePriceNum = 0
-avePriceDen = 0
+
 def getDataList(fileName):
     with open(fileName, 'r') as dataFile:
         dataList = []
         count = 0
         for lineStr in dataFile:
-            if lineStr == '\n':
-                pass
-            else:
-                dataList.append(lineStr.strip().split(','))
+            dataList.append(lineStr.strip().split(','))
+            #if lineStr == '\n':
+                #pass
+            #else:
+                #dataList.append(lineStr.strip().split(','))
         return dataList
 
-dataList = getDataList('AMZN.csv')
+dataList = getDataList('AMZN(1).csv')
 
-count = 0
-multiCloseVol = 0
-totalMVC = 0
+
+count = 1
+volume_int = 0
+close_float = 0
+date = ""
+ave_price_num = 0
+ave_price_den = 0
+ave_price = 0
+
 for i in dataList:
-    multiCloseVol = float(dataList[count][5]) * float(dataList[count][6])
-    print("Multi Close #1 " + str(multiCloseVol))
-    totalMCV = multiCloseVol + multiCloseVol
-    print("total MCV " + str(totalMCV))
-    count+=1
-    #Out of range due to count
+    date = dataList[count][0]
+    volume_int = int(dataList[count][6])
+    close_float = float(dataList[count][5])
+    ave_price_num += volume_int * close_float
+    ave_price_den += volume_int
+    print("Volume " + str(volume_int))
+    print("close price " + str(close_float))
+    print("Ave price Numerator " + str(ave_price_num))
+    print("Ave price den " + str(ave_price_den))
+    print("-----------------" * 2)
+    count += 1
+    if count > 22:
+        ave_price = ave_price_num/ave_price_den
+        print("average price " + str(ave_price))
+        print("Average price for June 2018 is : " + str(ave_price))
+        break
+ 
           
 '''for i in dataList:
     for j in i:
