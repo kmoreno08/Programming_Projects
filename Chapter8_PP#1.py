@@ -1,4 +1,4 @@
-#Chapter 8_Programming Project #1 - Data mining stock prices
+ #Chapter 8_Programming Project #1 - Data mining stock prices
 '''Program will calculate the monthly average prices of Amazon stock for a year
 and tell us the best six months and the worse six months'''
 
@@ -176,30 +176,40 @@ for i in dataList:
         volume_int = 0
         break
 
-print("Have exited loop")
-print(month_list)
-#Sort tuples to highest avg-price
-month_list.sort(key = sort_second, reverse = True)
-print("----" * 10)
-print(month_list)
-print("****" * 10)
 list_count = 0
 tuple_count = 0
+counter = 0
+
+#Sort tuples to highest avg-price
+month_list.sort(key = sort_second, reverse = True)
 for i in month_list:
-    if list_count == 0:
-        print("The top 6 months of average price are:")
-        list_count += 1
-    elif list_count < 6:
-        print(f'\n\t{month_list[tuple_count]}')
-        list_count += 1
-        tuple_count += 1
-    elif list_count == 6:
-        print("The lowest 6 months of average price are:")
-        list_count += 1
+    if counter == 0:
+            print("The top 6 months of average price are:")
+            print(F'\n\t{i}')
+            counter +=1
+    elif counter == 6:
+        counter = 0
+        break
     else:
-        print(f'\n\t{month_list[tuple_count]}')
-        list_count += 1
-        tuple_count += 1
+        print(F'\n\t{i}')
+        counter += 1
+
+
+#Sort tuples to lowest avg-price
+month_list.sort(key = sort_second, reverse = False)
+for i in month_list:
+    if counter == 0:
+        print("The bottom 6 months of average price are:")
+        print(F'\n\t{i}')
+        counter +=1
+    elif counter == 6:
+        break
+    else:
+        print(F'\n\t{i}')
+        counter += 1
+   
+        
+   
         
     
     
