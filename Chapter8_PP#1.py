@@ -44,9 +44,7 @@ for i in dataList:
     if count == 22:
         ave_price = ave_price_num/ave_price_den
         tuple_june = ("06/2018", ave_price)
-        print(tuple_june)
         month_list.append(tuple_june)
-        print(month_list)
         ave_price_num = 0
         ave_price_den = 0
         ave_price = 0
@@ -56,9 +54,7 @@ for i in dataList:
     elif count == 43:
         ave_price = ave_price_num/ave_price_den 
         tuple_july = ("07/2018", ave_price)
-        print(tuple_july)
         month_list.append(tuple_july)
-        print(month_list)
         ave_price_num = 0
         ave_price_den = 0
         ave_price = 0
@@ -68,7 +64,6 @@ for i in dataList:
     elif count == 66:
         ave_price = ave_price_num/ave_price_den 
         tuple_aug = ("08/2018", ave_price)
-        print(tuple_aug)
         month_list.append(tuple_aug)
         ave_price_num = 0
         ave_price_den = 0
@@ -79,7 +74,6 @@ for i in dataList:
     elif count == 85:
         ave_price = ave_price_num/ave_price_den 
         tuple_sep = ("09/2018", ave_price)
-        print(tuple_sep)
         month_list.append(tuple_sep)
         ave_price_num = 0
         ave_price_den = 0
@@ -90,7 +84,6 @@ for i in dataList:
     elif count == 108:
         ave_price = ave_price_num/ave_price_den 
         tuple_oct = ("10/2018", ave_price)
-        print(tuple_oct)
         month_list.append(tuple_oct)
         ave_price_num = 0
         ave_price_den = 0
@@ -101,7 +94,6 @@ for i in dataList:
     elif count == 129:
         ave_price = ave_price_num/ave_price_den 
         tuple_nov = ("11/2018", ave_price)
-        print(tuple_nov)
         month_list.append(tuple_nov)
         ave_price_num = 0
         ave_price_den = 0
@@ -112,7 +104,6 @@ for i in dataList:
     elif count == 148:
         ave_price = ave_price_num/ave_price_den 
         tuple_dec = ("12/2018", ave_price)
-        print(tuple_dec)
         month_list.append(tuple_dec)
         ave_price_num = 0
         ave_price_den = 0
@@ -123,7 +114,6 @@ for i in dataList:
     elif count == 169:
         ave_price = ave_price_num/ave_price_den 
         tuple_jan = ("01/2019", ave_price)
-        print(tuple_jan)
         month_list.append(tuple_jan)
         ave_price_num = 0
         ave_price_den = 0
@@ -134,7 +124,6 @@ for i in dataList:
     elif count == 188:
         ave_price = ave_price_num/ave_price_den 
         tuple_feb = ("02/2019", ave_price)
-        print(tuple_feb)
         month_list.append(tuple_feb)
         ave_price_num = 0
         ave_price_den = 0
@@ -145,7 +134,6 @@ for i in dataList:
     elif count == 209:
         ave_price = ave_price_num/ave_price_den 
         tuple_march = ("03/2019", ave_price)
-        print(tuple_march)
         month_list.append(tuple_march)
         ave_price_num = 0
         ave_price_den = 0
@@ -156,7 +144,6 @@ for i in dataList:
     elif count == 230:
         ave_price = ave_price_num/ave_price_den 
         tuple_april = ("04/2019", ave_price)
-        print(tuple_april)
         month_list.append(tuple_april)
         ave_price_num = 0
         ave_price_den = 0
@@ -167,7 +154,6 @@ for i in dataList:
     elif count == 252:
         ave_price = ave_price_num/ave_price_den 
         tuple_may = ("05/2019", ave_price)
-        print(tuple_may)
         month_list.append(tuple_may)
         ave_price_num = 0
         ave_price_den = 0
