@@ -182,3 +182,24 @@ print(month_list)
 month_list.sort(key = sort_second, reverse = True)
 print("----" * 10)
 print(month_list)
+print("****" * 10)
+list_count = 0
+tuple_count = 0
+for i in month_list:
+    if list_count == 0:
+        print("The top 6 months of average price are:")
+        list_count += 1
+    elif list_count < 6:
+        print(f'\n\t{month_list[tuple_count]}')
+        list_count += 1
+        tuple_count += 1
+    elif list_count == 6:
+        print("The lowest 6 months of average price are:")
+        list_count += 1
+    else:
+        print(f'\n\t{month_list[tuple_count]}')
+        list_count += 1
+        tuple_count += 1
+        
+    
+    
