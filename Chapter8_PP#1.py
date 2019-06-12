@@ -7,17 +7,17 @@ and tell us the best six months and the worse six months'''
 #printInfo function
 #DRY code
 
+#Open file and read
 def getDataList(fileName):
     with open(fileName, 'r') as dataFile:
         dataList = []
         count = 0
         for lineStr in dataFile:
             dataList.append(lineStr.strip().split(','))
-            #if lineStr == '\n':
-                #pass
-            #else:
-                #dataList.append(lineStr.strip().split(','))
         return dataList
+#Sort tuple by second element
+def sort_second(val):
+    return val[1]
 
 dataList = getDataList('AMZN.csv')
 
@@ -38,11 +38,6 @@ for i in dataList:
     close_float = float(dataList[count][5])
     ave_price_num += volume_int * close_float
     ave_price_den += volume_int
-    #print("Volume " + str(volume_int))
-    #print("close price " + str(close_float))
-    #print("Ave price Numerator " + str(ave_price_num))
-    #print("Ave price den " + str(ave_price_den))
-    #print("-----------------" * 2)
     count += 1
     
     #June/18
@@ -183,4 +178,7 @@ for i in dataList:
 
 print("Have exited loop")
 print(month_list)
-            
+#Sort tuples to highest avg-price
+month_list.sort(key = sort_second, reverse = True)
+print("----" * 10)
+print(month_list)
