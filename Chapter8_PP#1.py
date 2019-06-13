@@ -15,10 +15,44 @@ def getDataList(fileName):
         for lineStr in dataFile:
             dataList.append(lineStr.strip().split(','))
         return dataList
+    
 #Sort tuple by second element
 def sort_second(val):
     return val[1]
 
+def best_avg_price(month_list):
+    counter = 0
+    #Sort tuples to highest avg-price
+    month_list.sort(key = sort_second, reverse = True)
+    for i in month_list:
+        if counter == 0:
+                print("The best 6 months of average price are:")
+                print(F'\n\t{i}')
+                counter +=1
+        elif counter == 6:
+            counter = 0
+            break
+        else:
+            print(F'\n\t{i}')
+            counter += 1
+
+            
+#Sort tuple by lowest avg price
+def worst_avg_price(month_list):
+    counter = 0
+    month_list.sort(key = sort_second, reverse = False)
+    for i in month_list:
+        if counter == 0:
+            print("The worst 6 months of average price are:")
+            print(F'\n\t{i}')
+            counter +=1
+        elif counter == 6:
+            break
+        else:
+            print(F'\n\t{i}')
+            counter += 1
+
+        
 dataList = getDataList('AMZN.csv')
 
 
@@ -162,37 +196,11 @@ for i in dataList:
         volume_int = 0
         break
 
-list_count = 0
-tuple_count = 0
-counter = 0
 
-#Sort tuples to highest avg-price
-month_list.sort(key = sort_second, reverse = True)
-for i in month_list:
-    if counter == 0:
-            print("The top 6 months of average price are:")
-            print(F'\n\t{i}')
-            counter +=1
-    elif counter == 6:
-        counter = 0
-        break
-    else:
-        print(F'\n\t{i}')
-        counter += 1
+best_avg_price(month_list)
+worst_avg_price(month_list)
+    
 
-
-#Sort tuples to lowest avg-price
-month_list.sort(key = sort_second, reverse = False)
-for i in month_list:
-    if counter == 0:
-        print("The bottom 6 months of average price are:")
-        print(F'\n\t{i}')
-        counter +=1
-    elif counter == 6:
-        break
-    else:
-        print(F'\n\t{i}')
-        counter += 1
    
         
    
