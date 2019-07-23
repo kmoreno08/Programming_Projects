@@ -28,7 +28,7 @@ for index in range(0, 4):
         totalCalc = firstCalc + secondCalc
         row1.append(totalCalc)
         count+=1
-        
+         
 count = 0
 row2 = []
 for index in range(0, 5):
