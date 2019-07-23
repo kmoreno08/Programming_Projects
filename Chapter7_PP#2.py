@@ -3,11 +3,13 @@
 
 #Put in functions
 #Welcome message
-#Get user input and make the triangle scalable
+
 #List of all rows combined
 #Create the correct spacing
 
-    
+
+print("How many rows of Pascals Triangle would you like to see? (Max 6 )")
+num_rows = int(input("Please enter here: "))
 row0 = [0, 1 , 0]
 
 row1 = []
@@ -16,6 +18,7 @@ count = 0
 #row count + 2 for length of range
 #Note - Range = row number + 3
 for index in range(0, 4):
+    #Add 0 at the Beginning and ending of list
     if index == 0 or index == 3:
         row1.append(int(0))
         count+=1
@@ -29,7 +32,7 @@ for index in range(0, 4):
 count = 0
 row2 = []
 for index in range(0, 5):
-    print(index)
+    #Add 0 at the Beginning and ending of list
     if index == 0 or index == 4:
         row2.append(int(0))
         count+=1
@@ -45,6 +48,7 @@ row3 = []
 for index in range(0, 6):
     #Note - Length = number of row + 1
     #Note - index[-1] = length - 1
+    #Add 0 at the Beginning and ending of list
     if index == 0 or index == 5:
         row3.append(int(0))
         count+=1
@@ -61,6 +65,7 @@ row4 = []
 for index in range(0, 7):
     #Note - Length = number of row + 1
     #Note - index[-1] = length - 1
+    #Add 0 at the Beginning and ending of list
     if index == 0 or index == 6:
         row4.append(int(0))
         count+=1
@@ -77,6 +82,7 @@ row5 = []
 for index in range(0, 8):
     #Note - Length = number of row + 1
     #Note - index[-1] = length - 1
+    #Add 0 at the Beginning and ending of list
     if index == 0 or index == 7:
         row5.append(int(0))
         count+=1
@@ -88,13 +94,28 @@ for index in range(0, 8):
         row5.append(totalCalc)
         count+=1
 
-print("---" * 20)
-print(row0)
-print(row1)
-print(row2)
-print(row3)
-print(row4)
-print(row5)
+
+#Add all lists
+all_rows = []
+all_rows.append(row0)
+all_rows.append(row1)
+all_rows.append(row2)
+all_rows.append(row3)
+all_rows.append(row4)
+all_rows.append(row5)
+    
+
+
+'''#Print rows
+current_row = []
+full_list = []
+for n in range(0,num_rows):
+    current_row = all_rows[n]
+    full_list = current_row + '\n' + full_list
+    print(full_list)'''
+    
+
+
 
 
 
