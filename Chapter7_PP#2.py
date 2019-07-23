@@ -3,13 +3,19 @@
 
 #Put in functions
 #Welcome message
-
-#List of all rows combined
 #Create the correct spacing
 
 
-print("How many rows of Pascals Triangle would you like to see? (Max 6 )")
+print("How many rows of Pascals Triangle would you like to see? (Max 6)")
 num_rows = int(input("Please enter here: "))
+
+#User inputs rows over 6 or less than 1
+if num_rows > 6:
+    num_rows = 6
+elif num_rows < 1:
+    num_rows = 1
+    
+
 row0 = [0, 1 , 0]
 
 row1 = []
@@ -106,13 +112,13 @@ all_rows.append(row5)
     
 
 
-'''#Print rows
+#Print rows
 current_row = []
 full_list = []
 for n in range(0,num_rows):
-    current_row = all_rows[n]
-    full_list = current_row + '\n' + full_list
-    print(full_list)'''
+    string_row = str(all_rows[n])
+    print(string_row)
+   
     
 
 
