@@ -2,11 +2,12 @@
 '''Write a program that prompts for the height of Pascal's triangle'''
 
 #Put in functions
-#Welcome message
 #Create the correct spacing
 
-
+print("Welcome to Pascals Triange!")
 print("How many rows of Pascals Triangle would you like to see? (Max 6)")
+print("If less than 0, '1' will be entered.")
+print("If more than 6, '6' will be entered.")
 num_rows = int(input("Please enter here: "))
 
 #User inputs rows over 6 or less than 1
