@@ -4,7 +4,7 @@
  2) A limit should also be set on how many guesses they can use.
  3) Keep notifying the user of the remaining turns.
 Text file will be used for words. There will also be a check if the user has actually inputed
-a single letter, to check if the inputted is in the hidden word (and if it is, how many times
+a single letter, to check if the input is in the hidden word (and if it is, how many times
 it appears), to print letters, and a count variable to limit guesses.
 '''
 
@@ -54,6 +54,9 @@ list_word = list(word_lower)
 
 #remove '/n' 
 list_word = list_word[:-1]
+print(list_word)
+len_list_word = len(list_word)
+print(len_list_word)
 
 #Program will exit if no guesses left
 while guesses_left != 0:
@@ -71,20 +74,26 @@ while guesses_left != 0:
         if user_letter in list_word:
             print("Yes it is in here")
             guesses_left -= 1
+            #Remaining length of word
+            len_list_word -= 1
             #Iterate through each letter in word
             for letter in list_word:
                 #Letter is in word then remove from list
                 if letter == user_letter:
                     list_word.remove(letter)
                     print(list_word)
-            print("Your remaining number of guesses are " + str(guesses_left))
+            print("Remaining number of guesses left are " + str(guesses_left))
+            print("Remaining characters that have to be guessed are " + str(len_list_word))
         #Letter is not in word   
         else:
             print("nope, sorry!")
             guesses_left -= 1
-            print("Your remaining number of guesses are " + str(guesses_left))
+            #Remaining length of word
+            print("Remaining characters that have to be guessed are " + str(len_list_word))
+            print("Remaining number of guesses left are " + str(guesses_left))
        #If guess all letters in word
     print("Congrats! You have guessed the word!")
     print("The word is " + word)
+    guesses_left = 0
 #Exit program    
 print("You have exited the program.")
