@@ -21,13 +21,19 @@ count = 1
 result = []
 
 
-#Keep asking user until numbers are the input
+#Keep asking user until positive numbers are the input
 while True: 
     try:
         #Ask user how many sides the dice should be
-        input_sides = int(input("How many sides would you like on the dice? "))   
+        input_sides = int(input("How many sides would you like on the dice? "))
+        #Positive numbers only
+        if input_sides < 1:
+            input_sides = 1
         #How many times they would like to roll the dice
         input_roll = int(input("How many times would you like to roll the die? "))
+        #Positive Numbers only
+        if input_roll < 1:
+            input_roll = 1
         break
     except:
         print("That is not the correct input, Please try again! ")
