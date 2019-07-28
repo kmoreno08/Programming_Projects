@@ -20,11 +20,18 @@ count = 1
 #Empty list
 result = []
 
-#Ask user how many sides the dice should be
-input_sides = int(input("How many sides would you like on the dice? "))
-#How many times they would like to roll the dice
-input_roll = int(input("How many times would you like to roll the die? "))
 
+#Keep asking user until numbers are the input
+while True: 
+    try:
+        #Ask user how many sides the dice should be
+        input_sides = int(input("How many sides would you like on the dice? "))   
+        #How many times they would like to roll the dice
+        input_roll = int(input("How many times would you like to roll the die? "))
+        break
+    except:
+        print("That is not the correct input, Please try again! ")
+        print("Needs to be a real number.")
 
 #Roll as many times as needed
 while count != (input_roll + 1):
@@ -36,7 +43,7 @@ while count != (input_roll + 1):
     count += 1
 
 #Counter sets dictionary for items
-counter=collections.Counter(result)
+counter = collections.Counter(result)
 
 print("The total number of sides picked are :")
 #Print counter
