@@ -14,29 +14,32 @@ birth  = 7
 death = 13
 immigrant = 35
 
-
+#Ask user for years
 years = int(input("How many years ? : "))
 
+#Calculate days
 days = years*365
 
-
+#Calculate hours
 hours = days*24
 
-
+#Calculate minutes
 minutes = hours*60
 
-
+#Calculate seconds
 seconds = minutes*60
 
-
+#Calculate total births
 totalBirths = seconds/7
 intTotalBirths = int(totalBirths)
 print("The total number of births are : " + str(intTotalBirths))
 
+#Calculate total deaths
 totalDeaths = seconds/13
 intTotalDeaths = int(totalDeaths)
 print("The total number of deaths are : " + str(intTotalDeaths))
 
+#Calculate total immigrants
 totalImmigrants = seconds/35
 intTotalImmigrants = int(totalImmigrants)
 print("The total number of New Immigrants are : " + str(intTotalImmigrants))
@@ -45,11 +48,14 @@ print("---" * 22)
 
 startingPopulation = int(307357870)
 
+#New population
 newPopulation =  startingPopulation + totalBirths + totalImmigrants - totalDeaths
 intNewPopulation = int(newPopulation)
 
+#How much population increased from starting population.
 popIncreased = intNewPopulation - startingPopulation
 
+#Print statement
 popIncreasedPrint = f'Over {years} years, the population had increased by {popIncreased}'
 print(popIncreasedPrint)
 
