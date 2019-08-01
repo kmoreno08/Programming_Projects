@@ -9,7 +9,7 @@ With that being said, your goal is to find out which number meets these criteria
 4) The sum of all of the digits is less than or equal to 10 --complete
 5) First two digits add up to be odd --complete
 6) The second to last digit is even --complete
-7) The last digit is equal to how many digits are in the number
+7) The last digit is equal to how many digits are in the number --complete
 '''
 
 #Number has at least two digits
@@ -88,16 +88,31 @@ for index in range(len(final_num_list)-1, -1, -1):
     num_list = [int(d) for d in str(final_num_list[index])]
     #Save second to last number
     second_to_last = num_list[-2]
-    print(second_to_last)
     #If odd delete from list
-    if second_to_last % 2 == 0:
-        pass
+    if second_to_last % 2 == 1:
+        del final_num_list[index]
     #Delete from list
+    elif second_to_last == 0:
+        del final_num_list[index]
+    else:
+        pass
+
+
+#Last digit is equal to how many digits there are
+for index in range(len(final_num_list)-1, -1, -1):
+    #Split in to list
+    num_list = [int(d) for d in str(final_num_list[index])]
+    #Length of number
+    length_number = len(num_list)
+    #Get last digit
+    last_digit = num_list[-1]
+    #Delete from list
+    if last_digit == length_number:
+        pass
     else:
         del final_num_list[index]
 
-
-        
+print(final_num_list)
     
 
     
