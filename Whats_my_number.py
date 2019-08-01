@@ -66,6 +66,24 @@ for index in range(len(final_num_list)-1, -1, -1):
         pass
 
 print(final_num_list)
+#First two digits add up to be odd
+for index in range(len(final_num_list)-1, -1, -1):
+    #Split in to list
+    num_list = [int(d) for d in str(final_num_list[index])]
+    first_digit = num_list[0]
+    second_digit = num_list[1]
+    total_digit = first_digit + second_digit
+    print(first_digit)
+    print(second_digit)
+    print(total_digit)
+    print("***" * 10)
+    if total_digit % 2 == 1:
+        del final_num_list[index]
+    else:
+        pass
+
+print(final_num_list)
+
 
     
   
