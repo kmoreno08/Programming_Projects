@@ -7,8 +7,8 @@ With that being said, your goal is to find out which number meets these criteria
 2) The number is prime --complete
 3) The number does NOT contain a 1 or 7 in it --complete
 4) The sum of all of the digits is less than or equal to 10 --complete
-5) First two digits add up to be odd
-6) The second to last digit is even
+5) First two digits add up to be odd --complete
+6) The second to last digit is even --complete
 7) The last digit is equal to how many digits are in the number
 '''
 
@@ -65,25 +65,40 @@ for index in range(len(final_num_list)-1, -1, -1):
     else:
         pass
 
-print(final_num_list)
+
 #First two digits add up to be odd
 for index in range(len(final_num_list)-1, -1, -1):
     #Split in to list
     num_list = [int(d) for d in str(final_num_list[index])]
     first_digit = num_list[0]
     second_digit = num_list[1]
+    #Add both digits
     total_digit = first_digit + second_digit
-    print(first_digit)
-    print(second_digit)
-    print(total_digit)
-    print("***" * 10)
+    #If both digits add up to be even, remove from list
     if total_digit % 2 == 1:
-        del final_num_list[index]
-    else:
         pass
+    else:
+        del final_num_list[index]
 
-print(final_num_list)
 
+
+#The second to last digit is even
+for index in range(len(final_num_list)-1, -1, -1):
+    #Split in to list
+    num_list = [int(d) for d in str(final_num_list[index])]
+    #Save second to last number
+    second_to_last = num_list[-2]
+    print(second_to_last)
+    #If odd delete from list
+    if second_to_last % 2 == 0:
+        pass
+    #Delete from list
+    else:
+        del final_num_list[index]
+
+
+        
+    
 
     
   
